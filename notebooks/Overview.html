@@ -206,7 +206,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">&#182;</a></h1><p><img src="figs/phase-kick-151119.pdf" alt="phase kick data"></p>
+<h1 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">&#182;</a></h1><p><img src="figs/phase-kick-151119.png" width=480px></p>
 <ul>
 <li>Phase kick experimental data has complicated noise profile (see shaded regions)</li>
 <li>Especially in organic samples with long recovery times, few data points, so worthwhile to glean as much information as possible from data</li>
@@ -291,14 +291,34 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-resources">Python resources<a class="anchor-link" href="#Python-resources">&#182;</a></h1><h2 id="emcee"><code>emcee</code><a class="anchor-link" href="#emcee">&#182;</a></h2><ul>
+<h1 id="Python-resources">Python resources<a class="anchor-link" href="#Python-resources">&#182;</a></h1><p>Three good MCMC samplers in Python:</p>
+<h2 id="emcee"><code>emcee</code><a class="anchor-link" href="#emcee">&#182;</a></h2><ul>
 <li>Sampler needs no knowledge of derivatives</li>
+<li>"Affine-invariant" = same speed no matter how correlated the parameters are</li>
+<li>Probably the best choice if log likelihood is expensive to compute</li>
 </ul>
 <h2 id="PyStan"><code>PyStan</code><a class="anchor-link" href="#PyStan">&#182;</a></h2><ul>
 <li>Hamiltonian Monte Carlo (HMC) with "No-U-turn sampler" (NUTS) sampler</li>
+<li>Models can be written very similar to standard statistics notation (don't need to manually write out log likelihood / log posterior)</li>
+<li>Takes care of applying appropriate parameter transformations, calculating necessary gradients</li>
 </ul>
 <h2 id="PyMC2/3"><code>PyMC2/3</code><a class="anchor-link" href="#PyMC2/3">&#182;</a></h2><ul>
 <li>Metropolis-Hastings (PyMC2/PyMC3), HMC with NUTS (PyMC3)</li>
+<li>PyMC3 allows <code>Stan / R</code> like model descriptions</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Scientific-use-cases">Scientific use cases<a class="anchor-link" href="#Scientific-use-cases">&#182;</a></h2><ul>
+<li>Lots in social sciences</li>
+<li>Astronomy, including <a href="https://dcc.ligo.org/public/0122/P1500217/014/LIGO-P1500217_GW150914_Rates.pdf">LIGO</a>
+  <img alt="emcee, PyStan used in LIGO" src="http://andrewgelman.com/wp-content/uploads/2016/02/Screen-Shot-2016-02-15-at-4.33.03-PM.png" width=480px></li>
 </ul>
 
 </div>
@@ -333,22 +353,6 @@ div#notebook {
 <li>Comprehensive overview, somewhat more advanced. Available online from the <a href="https://newcatalog.library.cornell.edu/catalog/9204986">Cornell library</a>.</li>
 </ul>
 </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Outline">Outline<a class="anchor-link" href="#Outline">&#182;</a></h2><ul>
-<li>[x] Motivation</li>
-<li>[x] Statistics notation / terminology (with pictures)</li>
-<li>[x] Brownian motion example [<a href="LogNormalBrownian.ipynb">notebook</a>, html]</li>
-<li>[ ] Different samplers?</li>
-<li>[ ] Scientific use cases</li>
 </ul>
 
 </div>
